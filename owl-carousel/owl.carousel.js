@@ -441,9 +441,9 @@ if (typeof Object.create !== "function") {
 
         buildPagination : function () {
             var base = this;
-
+            var paginationContainer = $(base.options.paginationContainer).length ? $(base.options.paginationContainer) : base.owlControls;
             base.paginationWrapper = $("<div class=\"owl-pagination\"/>");
-            base.owlControls.append(base.paginationWrapper);
+            paginationContainer.append(base.paginationWrapper);
 
             base.paginationWrapper.on("touchend.owlControls mouseup.owlControls", ".owl-page", function (event) {
                 event.preventDefault();
@@ -1477,6 +1477,7 @@ if (typeof Object.create !== "function") {
 
         navigation : false,
         navContainer: false,
+        paginationContainer:false,
         navigationText : ["prev", "next"],
         rewindNav : true,
         scrollPerPage : false,
