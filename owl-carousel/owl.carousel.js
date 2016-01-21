@@ -393,8 +393,10 @@ if (typeof Object.create !== "function") {
 
         buildControls : function () {
             var base = this;
+            var navContainer = $(base.options.navContainer).length ?  $(base.options.navContainer)[0] : base.$elem;
             if (base.options.navigation === true || base.options.pagination === true) {
-                base.owlControls = $("<div class=\"owl-controls\"/>").toggleClass("clickable", !base.browser.isTouch).appendTo(base.$elem);
+
+                base.owlControls = $("<div class=\"owl-controls\"/>").toggleClass("clickable", !base.browser.isTouch).appendTo(navContainer);
             }
             if (base.options.pagination === true) {
                 base.buildPagination();
@@ -1474,6 +1476,7 @@ if (typeof Object.create !== "function") {
         stopOnHover : false,
 
         navigation : false,
+        navContainer: false,
         navigationText : ["prev", "next"],
         rewindNav : true,
         scrollPerPage : false,
